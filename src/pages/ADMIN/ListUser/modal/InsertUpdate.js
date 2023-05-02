@@ -170,6 +170,79 @@ const ModalInsertUpdate = ({ onOk, detailInfo, ...props }) => {
               ],
             }}
           >
+            <div className="form-list-custom">
+              <Form.List name="ListUserManager">
+                {(fields, { add, remove }) => (
+                  <>
+                    {fields.map(({ key, name, ...restField }, idx) => (
+                      <Row
+                        gutter={[16, 16]}
+                        className="mt-16"
+                        key={`form-list${idx}`}
+                      >
+                        <Col flex="auto" style={{ width: 0 }}>
+                          <Row gutter={[16, 16]}>
+                            <Col span={24} style={{}}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, "DepartmentID"]}
+                                label={!idx ? "Phòng ban" : undefined}
+                                required
+                                rules={[
+                                  {
+                                    required: true,
+                                    message: "Thông tin không được để trống",
+                                  },
+                                ]}
+                              >
+                                <TreeSelect
+                                  placeholder="Chọn"
+                                  treeData={listDept}
+                                />
+                              </Form.Item>
+                            </Col>
+                            {/* <Col span={12}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, "PositionID"]}
+                                label={!idx ? "Chức vụ" : undefined}
+                                // required
+                                // rules={[
+                                //   {
+                                //     required: true,
+                                //     message: "Thông tin không được để trống",
+                                //   },
+                                // ]}
+                              >
+                                <Select placeholder="Chọn">
+                                  {listPosition?.map(i => (
+                                    <Option
+                                      key={i?.PositionID}
+                                      value={i?.PositionID}
+                                      title={i?.PositionName}
+                                    >
+                                      {i?.PositionName}
+                                    </Option>
+                                  ))}
+                                </Select>
+                              </Form.Item>
+                            </Col> */}
+                          </Row>
+                        </Col>
+                        <Col style={{ marginTop: !idx ? 30 : 0 }}>
+                          <ButtonCircle
+                            iconName={!idx ? "plus-circle" : "bin"}
+                            title={!idx ? "Thêm" : "Xóa"}
+                            onClick={() => (!idx ? add() : remove(name))}
+                            style={{ background: !idx ? "#EDF6FC" : "#F7F7F7" }}
+                          />
+                        </Col>
+                      </Row>
+                    ))}
+                  </>
+                )}
+              </Form.List>
+            </div>
             <Row gutter={[16]}>
               <Col span={24}>
                 <Form.Item
@@ -410,79 +483,6 @@ const ModalInsertUpdate = ({ onOk, detailInfo, ...props }) => {
                 </Form.Item>
               </Col>
             </Row>
-            <div className="form-list-custom">
-              <Form.List name="ListUserManager">
-                {(fields, { add, remove }) => (
-                  <>
-                    {fields.map(({ key, name, ...restField }, idx) => (
-                      <Row
-                        gutter={[16, 16]}
-                        className="mt-16"
-                        key={`form-list${idx}`}
-                      >
-                        <Col flex="auto" style={{ width: 0 }}>
-                          <Row gutter={[16, 16]}>
-                            <Col span={12} style={{}}>
-                              <Form.Item
-                                {...restField}
-                                name={[name, "DepartmentID"]}
-                                label={!idx ? "Phòng ban" : undefined}
-                                required
-                                rules={[
-                                  {
-                                    required: true,
-                                    message: "Thông tin không được để trống",
-                                  },
-                                ]}
-                              >
-                                <TreeSelect
-                                  placeholder="Chọn"
-                                  treeData={listDept}
-                                />
-                              </Form.Item>
-                            </Col>
-                            <Col span={12}>
-                              <Form.Item
-                                {...restField}
-                                name={[name, "PositionID"]}
-                                label={!idx ? "Chức vụ" : undefined}
-                                // required
-                                // rules={[
-                                //   {
-                                //     required: true,
-                                //     message: "Thông tin không được để trống",
-                                //   },
-                                // ]}
-                              >
-                                <Select placeholder="Chọn">
-                                  {listPosition?.map(i => (
-                                    <Option
-                                      key={i?.PositionID}
-                                      value={i?.PositionID}
-                                      title={i?.PositionName}
-                                    >
-                                      {i?.PositionName}
-                                    </Option>
-                                  ))}
-                                </Select>
-                              </Form.Item>
-                            </Col>
-                          </Row>
-                        </Col>
-                        <Col style={{ marginTop: !idx ? 30 : 0 }}>
-                          <ButtonCircle
-                            iconName={!idx ? "plus-circle" : "bin"}
-                            title={!idx ? "Thêm" : "Xóa"}
-                            onClick={() => (!idx ? add() : remove(name))}
-                            style={{ background: !idx ? "#EDF6FC" : "#F7F7F7" }}
-                          />
-                        </Col>
-                      </Row>
-                    ))}
-                  </>
-                )}
-              </Form.List>
-            </div>
           </Form>
         </Styled>
       </Spin>

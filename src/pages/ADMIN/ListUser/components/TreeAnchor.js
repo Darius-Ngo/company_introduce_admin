@@ -104,7 +104,7 @@ const TreeAnchor = ({ keyId, selectedNode, setSelectedNote, getAllUser }) => {
                 onClick={() => {
                   setIsOpenModal(true)
                   setDataInfo({
-                    DepartmentName: "Công đoàn y tế Việt Nam",
+                    DepartmentName: "HEART AND VIRTUE",
                     DepartmentID: GUIDE_EMPTY,
                   })
                 }}

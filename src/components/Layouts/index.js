@@ -25,7 +25,6 @@ import Footer from "../Footer"
 import SvgIcon from "../SvgIcon"
 import { SubTableHeader } from "../Table/CustomTable/styled"
 import MenuItem from "./MenuItems"
-import NotifyForm from "./Notify"
 import LayoutAdmin from "./component/LayoutAdmin"
 import { LayoutStyled, StyleMenuAccount } from "./styled"
 import "./styles.scss"
@@ -224,50 +223,6 @@ const MainLayout = ({ children, isAdmin }) => {
                 </div>
                 {!!isLogin ? (
                   <div className="d-flex justify-content-flex-end align-items-end">
-                    <Dropdown
-                      overlay={
-                        <NotifyForm
-                          // getList={textSearch => getListNotify(textSearch)}
-                          listNotify={listNotify}
-                          loading={loading}
-                          onClose={() => setVisibleNotify(false)}
-                        />
-                      }
-                      onOpenChange={setVisibleNotify}
-                      open={visibleNotify}
-                      trigger={["click"]}
-                    >
-                      <Col
-                        className=" pointer d-flex align-item-center mb-2 mr-5"
-                        style={{ height: "100%" }}
-                        onClick={() => {
-                          if (numberOfNewNotifies > 0) {
-                            setNumberOfNewNotifies(0)
-                            setLoading(true)
-                            NotifyApi.MarkAsSeen("")
-                              .then(res => {
-                                if (res.isOk) {
-                                  // getListNotify("")
-                                }
-                              })
-                              .finally(() => setLoading(false))
-                          }
-                        }}
-                      >
-                        <Badge
-                          count={numberOfNewNotifies}
-                          overflowCount={99}
-                          size="small"
-                          className="notification_count "
-                        >
-                          {isAdmin ? (
-                            <SvgIcon name="bell" />
-                          ) : (
-                            <SvgIcon name="bell-white" />
-                          )}
-                        </Badge>
-                      </Col>
-                    </Dropdown>
                     <Dropdown
                       overlay={menu}
                       overlayStyle={{ minWidth: "300px" }}

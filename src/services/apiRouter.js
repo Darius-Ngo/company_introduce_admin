@@ -107,43 +107,6 @@ export const apiGetAllTags = "Tags/GetAllForCombobox"
 export const apiUploadFile = "File/UploadFile"
 export const apiUploadFileList = "File/UploadListFileSeaWeed"
 
-//ORDER_LIST
-export const apiGetListOrder = "OrderList/GetList"
-export const apiUpdateCancellation = "OrderList/UpdateCancellation"
-export const apiUpdateOrder = "OrderList/Update"
-
-// GUEST
-
-export const apiGetListPostByCategoryPostID =
-  "Guest/GetListPostByCategoryPostID"
-export const apiGetListStaticNavbar = "Guest/GetListStaticNavbar"
-export const apiGetDetailByG = "Guest/GetPostDetail"
-export const apiGuestSendContact = "Guest/SendContact"
-export const apiGetAllTopicGuest = "Guest/GetAllTopic"
-export const apiGetPostHome = "Guest/GetPostHome"
-export const apiGetRegionId = "Guest/GetByRegionId"
-export const apiGetCategoryPost = "Guest/GetCategoryPost"
-export const apiGetListPostRelate = "Guest/GetListPostRelate"
-export const apiGetListPostByTags = "Guest/GetListPostByTags"
-export const apiGetAllListPost = "Guest/GetAllListPost"
-export const apiAllPostCommnetByType = "Guest/GetAllPostCommnetByType"
-export const apiGetListTopicG = "Guest/GetListTopicName"
-export const apiGetTopicByTypeGuest = "Guest/GetTopicByType"
-export const apiGuestGetAllTopicPackage = "Guest/GetAllTopicPackage"
-export const apiGetAllPackageGuest = "Guest/GetAllPackage"
-export const apiGetListTopicPostHome = "Guest/GetListTopicPostHome"
-export const apiGetDetailTopicPostHome = "Guest/GetDetailTopicPostHome"
-export const apiGetListBanner = "Guest/GetListBannerFooterEvent"
-export const apiGetListVideo = "Guest/GetListVideo"
-export const apiGetGuestListImage = "Guest/GetListImage"
-export const apiGetListCateImgeOther = "Guest/GetListCateImgeOther"
-export const apiGetListOrganizSystem = "Guest/GetListOrganizSystem"
-export const apiGuestGetAccountComboBox = "Guest/GetAccountComboBox"
-export const apiGuestGetListPositionForCombobox = "Guest/GetListChucVu"
-export const apiGetListAgencyIssued = "Guest/GetListAgencyIssued"
-export const apiGetListDocumentType = "Guest/GetListDocumentType"
-export const apiGetListField = "Guest/GetList"
-
 //Directory
 export const apiGetAllUserDirectory = "Directory/GetAllUserDirectory"
 export const apiInsertUserDirectory = "Directory/InsertUserDirectory"
@@ -164,26 +127,11 @@ export const apiStatusSupport = "Contact/StatusSupport"
 export const apiGetDetailContact = "Contact/GetDetailContact"
 export const apiSendContact = "Contact/SendContact"
 
-// GOOGLE
-
-export const apiLoginGoole = "Authservice/GetGoogleLoginUrl"
-export const apiCallBackLoginGoole = "Authservice/GetTokenInfo"
-//FACEBOOK
-
-export const apiLoginFB = "Authservice/GetFacebookLoginUrl"
 // Topic
 export const apiGetListTopic = "Topic/GetList"
 export const apiDeleteTopicCategory = "Topic/DeleteTopicCategory"
 export const apiCreateTopicCategory = "Topic/CreateTopicCategory"
 export const apiUpdateTopicCategory = "Topic/UpdateTopicCategory"
-//Image
-export const apiInsertImage = "Image/InsertImage"
-export const apiUpdateImage = "Image/UpdateImage"
-export const apiDeleteImage = "Image/DeleteImage"
-export const apiUpdateStatusImage = "Image/UpdateStatusImage"
-export const apiGetListImage = "Image/GetListImage"
-export const apiGetDetailImage = "Image/GetDetailImage"
-export const apiExportImage = "Image/ExportImage"
 
 // TopicPost
 export const apiGetAllOrBySearch = "TopicPost/GetAllOrBySearch"
@@ -208,49 +156,6 @@ export const apiMarkAsSeen = "Notify/MarkAsSeen?NotifyId="
 export const apiDeleteNotifyForUser = "Notify/DeleteNotifyForUser?NotifyId="
 export const apiGetListByReferenceId = "Notify/GetListByReferenceId"
 
-//boxchat
+//Guest
 
-export const apiGetByObjectId = "CommunicationContact/GetByObjectId"
-export const apiInsertOrUpdateContact = "CommunicationContact/InsertOrUpdate"
-export const apiDeleteContact = "CommunicationContact/Delete"
-export const apiGetListContactByPackage =
-  "CommunicationContact/GetListContactByPackage"
-export const apiGetContactDetailsByAccount =
-  "CommunicationContact/GetContactDetailsByAccount"
-
-//Package
-
-export const apiGetAllPackage = "Package/GetAllPackage"
-export const apiInsertPackage = "Package/InsertPackage"
-export const apiUpdatePackage = "Package/UpdatePackage"
-export const apiDeletePackage = "Package/DeletePackage"
-export const apiGetAllTopicPackage = "Package/GetAllTopicPackage"
-export const apiPackageInsertTopic = `Package/InsertTopic`
-export const apiPackageUpdateTopic = `Package/UpdateTopic`
-export const apiPackageDeletePackage = `Package/DeleteTopic`
-
-export const apiGetAllRequestPackage = `Package/GetAllRequestPackage`
-export const apiDeleteRequestPackage = `Package/DeleteRequestPackage`
-export const apiInsertRequestPackage = `Package/InsertRequestPackage`
-export const apiGetAllRequestPackageForUser = `Package/GetAllRequestPackageForUser`
-export const apiUpdateStatusRequestPackage = `Package/UpdateStatusRequestPackage`
-export const apiCreateRequestPackage = `Package/CreateRequestPackage`
-export const apiEvaluateForPackage = `Package/EvaluateForPackage`
-
-export const apiPackageCommentInsert = `Package/PackageCommentInsert`
-export const apiPackageCommentUpdate = `Package/PackageCommentUpdate`
-export const apiPackageCommentDelete = `Package/PackageCommentDelete`
-export const apiPackageCommentUserLike = `Package/PackageCommentUserLike`
-export const apiGetAllPackageCommnetByType = `Package/GetAllPackageCommnetByType`
-export const apiGetDefaultPackageComment = `Package/GetDefaultPackageComment`
-export const apiSortRequestService = `Package/SortRequestService`
-
-//Banner && Footer
-export const apiGetListBannerFooter = `BannerFoodter/GetList`
-export const apiInsertBannerFooter = `BannerFoodter/Insert`
-export const apiUpdateBannerFooter = `BannerFoodter/Update`
-export const apiGetListEvent = `BannerFoodter/GetListEvent`
-export const apiInsertEvent = `BannerFoodter/InsertEvent`
-export const apiUpdateEvent = `BannerFoodter/UpdateEvent`
-export const apiDeleteEvent = `BannerFoodter/DeleteEvent`
-export const apiUpdateOrderEvent = `BannerFoodter/UpdateOrderEvent`
+export const apiGetListStaticNavbar = "Guest/GetListStaticNavbar"

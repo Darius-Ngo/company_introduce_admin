@@ -11,7 +11,6 @@ import { getListSystemKey, getStaticNav, setListTabs } from "./redux/appGlobal"
 import ROUTER from "./router"
 import GuestServices from "./services/GuestServices"
 import RoleService from "./services/RoleService"
-import { setBanner, setEvent, setFooter } from "./redux/banner"
 
 // ANONYMOUS
 const PublicRouters = React.lazy(() => import("./pages/PublicRouters"))
@@ -27,7 +26,6 @@ const MyAccount = React.lazy(() => import("./pages/USER/MyAccount"))
 // ADMIN
 const AminRoutes = React.lazy(() => import("./pages/ADMIN/AminRoutes"))
 const Department = React.lazy(() => import("./pages/ADMIN/Department"))
-const ListContact = React.lazy(() => import("./pages/ADMIN/ListContact"))
 
 // const ListUser = React.lazy(() => import("./pages/ADMIN/ListUser"))
 const PostManager = React.lazy(() => import("./pages/ADMIN/PostManager"))
@@ -37,8 +35,7 @@ const Role = React.lazy(() => import("./pages/ADMIN/Role"))
 // )
 const Tags = React.lazy(() => import("./pages/ADMIN/Tags"))
 const CategoryPost = React.lazy(() => import("./pages/ADMIN/CategoryPost"))
-const ActivityLog = React.lazy(() => import("./pages/ADMIN/HistoryActive"))
-
+const ListContact = React.lazy(() => import("./pages/ADMIN/ListContact"))
 function LazyLoadingComponent({ children }) {
   return (
     <React.Suspense
@@ -61,24 +58,6 @@ function App() {
   const { modalLoading } = useSelector(state => state.common)
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    getBaner()
-  }, [])
-  const [bannerTop, setBannerTop] = useState()
-  const getBaner = async () => {
-    const res = await GuestServices.getListBanner()
-    if (res?.isError) return
-    setBannerTop(pre => res?.Object?.BannerFooter?.ListBanner?.[0])
-    dispatch(setBanner(res?.Object?.BannerFooter?.ListBanner))
-    dispatch(
-      setFooter({
-        Footer: res?.Object?.BannerFooter?.Footer,
-        Map: res?.Object?.BannerFooter?.Map,
-      }),
-    )
-    dispatch(setBanner(res?.Object?.BannerFooter?.ListBanner))
-    dispatch(setEvent(res?.Object?.Event))
-  }
   useEffect(() => {
     getSystemKey()
   }, [])
@@ -129,6 +108,14 @@ function App() {
       ),
       children: [
         {
+          path: ROUTER.DANH_BA,
+          element: (
+            <LazyLoadingComponent>
+              <ListContact />
+            </LazyLoadingComponent>
+          ),
+        },
+        {
           path: ROUTER.PHONG_BAN_CHUC_VU,
           element: (
             <LazyLoadingComponent>
@@ -169,15 +156,14 @@ function App() {
         //     </LazyLoadingComponent>
         //   ),
         // },
-
-        {
-          path: ROUTER.DANH_BA,
-          element: (
-            <LazyLoadingComponent>
-              <ListContact />
-            </LazyLoadingComponent>
-          ),
-        },
+        // {
+        //   path: ROUTER.NHOM_TIN_BAI,
+        //   element: (
+        //     <LazyLoadingComponent>
+        //       <CategoryPost type={1} />
+        //     </LazyLoadingComponent>
+        //   ),
+        // },
         {
           path: ROUTER.LOAI_VAN_BAN,
           element: (
@@ -186,6 +172,22 @@ function App() {
             </LazyLoadingComponent>
           ),
         },
+        // {
+        //   path: ROUTER.LINH_VUC,
+        //   element: (
+        //     <LazyLoadingComponent>
+        //       <CategoryPost type={3} />
+        //     </LazyLoadingComponent>
+        //   ),
+        // },
+        // {
+        //   path: ROUTER.LOAI_TAI_LIEU,
+        //   element: (
+        //     <LazyLoadingComponent>
+        //       <CategoryPost type={4} />
+        //     </LazyLoadingComponent>
+        //   ),
+        // },
         {
           path: ROUTER.CO_QUAN_BAN_HANH,
           element: (
@@ -194,14 +196,22 @@ function App() {
             </LazyLoadingComponent>
           ),
         },
-        {
-          path: ROUTER.LS_HOAT_DONG,
-          element: (
-            <LazyLoadingComponent>
-              <ActivityLog />
-            </LazyLoadingComponent>
-          ),
-        },
+        // {
+        //   path: ROUTER.NHOM_HINH_ANH,
+        //   element: (
+        //     <LazyLoadingComponent>
+        //       <CategoryPost type={6} />
+        //     </LazyLoadingComponent>
+        //   ),
+        // },
+        // {
+        //   path: ROUTER.DANH_BA_KHACH_HANG,
+        //   element: (
+        //     <LazyLoadingComponent>
+        //       <CustomerDirectory />
+        //     </LazyLoadingComponent>
+        //   ),
+        // },
       ],
     },
     //  USER
